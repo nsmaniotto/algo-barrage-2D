@@ -10,7 +10,8 @@ Programme : Calculer la quantité maximale que peut contenir un barrage.
  			Barrage modélisé sous forme de variations de niveau.
  			Variations de niveau sur un espace à deux dimensions.
 
-Version : 1.0, algorithme fonctionnel, donnée d'entrée prédéfinies.
+Version : 1.1, algorithme fonctionnel
+		  Une seule donnée d'entrée, modifiable manuellement (lignes 96, 97).
 
 *******************************************************************************/
 
@@ -92,21 +93,15 @@ int main()
 {
 	/* INITIALISATION */
 	// Barrages
-	int barrage1[] = {1, 0, 2, 0, 0, 2, 0};
-	int tailleBarrage1 = 7;
+	int barrage[] = {4, 2, 3, 5}; // sortie attendue : 3
+	int tailleBarrage = 4;
 	
-	int barrage2[] = {0, 1, 2, 4, 2, 3, 1, 0, 0, 5, 6, 3, 4};
-	int tailleBarrage2 = 13;
-	
-	int contenanceBarrage1 = 0;
-	int contenanceBarrage2 = 0;
+	int contenanceBarrage = 0;
 	
 	/* TRAITEMENT */
-	contenanceBarrage1 = calculerContenance(barrage1, tailleBarrage1);
-	contenanceBarrage2 = calculerContenance(barrage2, tailleBarrage2);
+	contenanceBarrage = calculerContenance(barrage, tailleBarrage);
 	
-	printf("Contenance barrage 1 : %d \n", contenanceBarrage1);
-	printf("Contenance barrage 2 : %d \n", contenanceBarrage2);
+	printf("Contenance barrage : %d \n", contenanceBarrage);
 
     return 0;
 }

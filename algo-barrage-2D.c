@@ -1,6 +1,6 @@
 /******************************************************************************
 
-Date : 02/06/2020
+Date : 02/07/2020
 
 Auteur : Nathan Smaniotto
 
@@ -10,8 +10,9 @@ Programme : Calculer la quantité maximale que peut contenir un barrage.
  			Barrage modélisé sous forme de variations de niveau.
  			Variations de niveau sur un espace à deux dimensions.
 
-Version : 1.1, algorithme fonctionnel
-		  Une seule donnée d'entrée, modifiable manuellement (lignes 96, 97).
+Version : 1.2, algorithme fonctionnel
+		  Une seule donnée d'entrée, modifiable manuellement (lignes 134, 135).
+		  Visualisation graphique du barrage.
 
 *******************************************************************************/
 
@@ -20,6 +21,8 @@ Version : 1.1, algorithme fonctionnel
 #define MONTEE 0
 #define DESCENTE 1
 #define CUVE 2
+
+#define MARGE_AFFICHAGE 1
 
 int calculerContenance(int barrage[], int tailleBarrage) {
 	/* INITIALISATION */
@@ -89,19 +92,56 @@ int calculerContenance(int barrage[], int tailleBarrage) {
 	return contenanceBarrage;
 }
 
+void afficherBarrage(int barrage[], int tailleBarrage) {
+	/* INITIALISATION */
+	int niveauMaximum = 0;	
+	int i, j;
+	
+	/* TRAITEMENT */
+	// Trouver le niveau maximum
+	for(i = 0; i < tailleBarrage; i++) {
+		if(barrage[i] > niveauMaximum) {
+			niveauMaximum = barrage[i];
+		}
+	}
+	
+	// Retour à la ligne (marge à l'affichage)
+	printf("\n");
+	
+	// Afficher chaque ligne de cette espace à deux dimensions de haut en bas
+	for(j = niveauMaximum; j >= 0; j--) {
+		// Afficher chaque colonne de gauche à droite
+		for(i = 0; i < tailleBarrage; i++) {
+			if(barrage[i] >= j) {
+				printf("%c%c", 219, 219);
+			} else {
+				printf("  ");
+			}
+		}
+		
+		// Retour à la ligne
+		printf("\n");
+	}
+	
+	// Retour à la ligne
+	printf("\n");
+}
+
 int main()
-{
+{	
 	/* INITIALISATION */
 	// Barrages
-	int barrage[] = {4, 2, 3, 5}; // sortie attendue : 3
-	int tailleBarrage = 4;
+	int barrage[] = {0, 1, 2, 4, 2, 3, 1, 0, 0, 5, 6, 3, 4} ; // sortie attendue : 15
+	int tailleBarrage = 13;
 	
 	int contenanceBarrage = 0;
 	
 	/* TRAITEMENT */
+	afficherBarrage(barrage, tailleBarrage);
+	
 	contenanceBarrage = calculerContenance(barrage, tailleBarrage);
 	
-	printf("Contenance barrage : %d \n", contenanceBarrage);
+	printf("Contenance du barrage barrage : %d \n", contenanceBarrage);
 
     return 0;
 }

@@ -27,4 +27,3 @@ int tailleBarrage = 13;
 ## Améliorations possibles
 
 - Générer aléatoirement des barrages
-- Afficher le barrage avec sa contenance

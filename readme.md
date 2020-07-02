@@ -23,8 +23,8 @@ Ce programme, grâce à l'algorithme qu'il implémente, permet de calculer la **
 Pour se faire, modifier les lignes ci-dessous présentes dans le fichier `algo-barrage-2D.c` aux lignes **134** et **135** en y spécifiant l'entrée voulue ainsi que sa taille.
 
 ```c
-int barrage[] = {4, 2, 3, 5}; // sortie attendue : 3
-int tailleBarrage = 4;
+int barrage[] = {0, 1, 2, 4, 2, 3, 1, 0, 0, 5, 6, 3, 4} ; // sortie attendue : 15
+int tailleBarrage = 13;
 ``` 
 
 ## Améliorations possibles
